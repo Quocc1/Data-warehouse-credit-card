@@ -1,0 +1,267 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b0a6b730-eec6-4468-8ad1-5b296c6a9f8f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Credit Card DW</ID>
+  <Name>Credit Card DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Credit Card DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Credit_x0020_Card_x0020_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Credit_x0020_Card_x0020_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="5e73d755-760f-4f2f-b669-e9f2a8122ac7">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact" msprop:DbTableName="Fact" msprop:FriendlyName="Fact" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="d166c3a5-986d-4a60-ab98-c191d0d18450">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" msprop:FriendlyName="ID" msprop:DbColumnName="ID" msprop:design-time-name="c1cbb684-071a-4800-82d4-9a227ccd4c2c" type="xs:int" />
+                  <xs:element name="Gender" msprop:FriendlyName="Gender" msprop:DbColumnName="Gender" msprop:design-time-name="60806fa5-3b23-4a60-ba39-b85e111d72f7" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Age" msprop:FriendlyName="Age" msprop:DbColumnName="Age" msprop:design-time-name="9d19308e-8e59-4675-99a3-83a71b259a44" type="xs:int" minOccurs="0" />
+                  <xs:element name="OwnCar" msprop:FriendlyName="OwnCar" msprop:DbColumnName="OwnCar" msprop:design-time-name="0eeb1c7f-d68b-447b-a288-54c7fd7651f5" type="xs:int" minOccurs="0" />
+                  <xs:element name="OwnProperty" msprop:FriendlyName="OwnProperty" msprop:DbColumnName="OwnProperty" msprop:design-time-name="886159c6-7a10-4513-865b-84507340fb46" type="xs:int" minOccurs="0" />
+                  <xs:element name="EducationType" msprop:FriendlyName="EducationType" msprop:DbColumnName="EducationType" msprop:design-time-name="3c79c3b7-58a4-46e1-b9f2-1427daff9d1d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="HousingType" msprop:FriendlyName="HousingType" msprop:DbColumnName="HousingType" msprop:design-time-name="6392f71a-1faf-48f9-89d7-251d06a2d180" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FamilyStatus" msprop:FriendlyName="FamilyStatus" msprop:DbColumnName="FamilyStatus" msprop:design-time-name="e671836c-33f8-4bda-92b5-d3cd98121524" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NumChildren" msprop:FriendlyName="NumChildren" msprop:DbColumnName="NumChildren" msprop:design-time-name="c1a741af-4306-494a-9d66-5582b7584711" type="xs:int" minOccurs="0" />
+                  <xs:element name="Unemployed" msprop:FriendlyName="Unemployed" msprop:DbColumnName="Unemployed" msprop:design-time-name="c0ed8722-d7f6-4b02-ab54-4f3082a2d548" type="xs:int" minOccurs="0" />
+                  <xs:element name="OccupationType" msprop:FriendlyName="OccupationType" msprop:DbColumnName="OccupationType" msprop:design-time-name="40b8fd7f-a93a-413b-8fd1-9f47bd4ea2d7" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="IncomeType" msprop:FriendlyName="IncomeType" msprop:DbColumnName="IncomeType" msprop:design-time-name="df535aec-7558-44f6-a7e2-a6af5fc7cc17" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TotalIncome" msprop:FriendlyName="TotalIncome" msprop:DbColumnName="TotalIncome" msprop:design-time-name="d606bab4-b615-4afa-9ff4-c4fbcb676d2b" type="xs:double" minOccurs="0" />
+                  <xs:element name="YearsEmployed" msprop:FriendlyName="YearsEmployed" msprop:DbColumnName="YearsEmployed" msprop:design-time-name="754af12c-7c3e-43ce-93a5-571eff096c79" type="xs:int" minOccurs="0" />
+                  <xs:element name="Target" msprop:FriendlyName="Target" msprop:DbColumnName="Target" msprop:design-time-name="00ec2bfa-b032-44e4-bd44-9fc942330107" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactCustomerIncomeType" msprop:DbTableName="FactCustomerIncomeType" msprop:FriendlyName="FactCustomerIncomeType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="a5af5711-37bd-4658-8ad0-976be0aa3b35">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" msprop:FriendlyName="ID" msprop:DbColumnName="ID" msprop:design-time-name="4b6d77ab-beaf-4486-990a-d2cdcf314e14" type="xs:int" />
+                  <xs:element name="IncomeTypeID" msprop:FriendlyName="IncomeTypeID" msprop:DbColumnName="IncomeTypeID" msprop:design-time-name="fbfd797c-206e-4f72-a704-939db40e4c78" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactCustomerHousingType" msprop:DbTableName="FactCustomerHousingType" msprop:FriendlyName="FactCustomerHousingType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="eeb52ce0-7081-4236-9452-610c93f676bd">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" msprop:FriendlyName="ID" msprop:DbColumnName="ID" msprop:design-time-name="7679d22e-0b4f-46bf-9cf1-120187054344" type="xs:int" />
+                  <xs:element name="HousingTypeID" msprop:FriendlyName="HousingTypeID" msprop:DbColumnName="HousingTypeID" msprop:design-time-name="2f321bbd-1e66-4b32-8852-6333f22d7d22" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactCustomerGender" msprop:DbTableName="FactCustomerGender" msprop:FriendlyName="FactCustomerGender" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="8d7b7101-7d50-4c5d-88cd-243a0e4f35e3">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" msprop:FriendlyName="ID" msprop:DbColumnName="ID" msprop:design-time-name="79d65638-fb15-4af3-999b-74ebdc4e0a3b" type="xs:int" />
+                  <xs:element name="GenderID" msprop:FriendlyName="GenderID" msprop:DbColumnName="GenderID" msprop:design-time-name="b6621f3d-3b3c-431c-ae46-c5597fb41cdf" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactCustomerEducationType" msprop:DbTableName="FactCustomerEducationType" msprop:FriendlyName="FactCustomerEducationType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="405d58da-cce8-4ba0-bab6-9e0edd25de13">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" msprop:FriendlyName="ID" msprop:DbColumnName="ID" msprop:design-time-name="d0c3cca3-7e65-4c37-af1c-883d9fa94d78" type="xs:int" />
+                  <xs:element name="EducationTypeID" msprop:FriendlyName="EducationTypeID" msprop:DbColumnName="EducationTypeID" msprop:design-time-name="1bddfd8f-329b-4f54-8ff6-b66472fbc36c" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimIncomeType" msprop:DbTableName="DimIncomeType" msprop:FriendlyName="DimIncomeType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="924043dd-d572-4bd4-9bb9-c15bec20c454">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="IncomeTypeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="IncomeTypeID" msprop:DbColumnName="IncomeTypeID" msprop:design-time-name="49d043de-cb17-49d6-ace3-b2893602b42c" type="xs:int" />
+                  <xs:element name="IncomeType" msprop:FriendlyName="IncomeType" msprop:DbColumnName="IncomeType" msprop:design-time-name="b626074c-fb3f-474f-8da1-2303abcce361" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGender" msprop:DbTableName="DimGender" msprop:FriendlyName="DimGender" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="d793cfd3-4637-4d65-9616-abf84c41160f">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="GenderID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="GenderID" msprop:DbColumnName="GenderID" msprop:design-time-name="7cd4d19b-1462-44bb-a425-6f4675c243e2" type="xs:int" />
+                  <xs:element name="Gender" msprop:FriendlyName="Gender" msprop:DbColumnName="Gender" msprop:design-time-name="a4f45aef-8a61-4fd2-b410-d17fd51d6611" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimHousingType" msprop:DbTableName="DimHousingType" msprop:FriendlyName="DimHousingType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="b2a9f6d0-33ae-4d6b-bab0-461bd3cbe1da">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="HousingTypeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="HousingTypeID" msprop:DbColumnName="HousingTypeID" msprop:design-time-name="296421fc-6cdb-46ad-aad0-6acdcd51980e" type="xs:int" />
+                  <xs:element name="HousingType" msprop:FriendlyName="HousingType" msprop:DbColumnName="HousingType" msprop:design-time-name="bb3ec90e-8464-41fe-8c3f-3ab6b331bfa5" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimEducationType" msprop:DbTableName="DimEducationType" msprop:FriendlyName="DimEducationType" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="0af2ad2a-05ed-47c8-aa1f-5744a4c8388f">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EducationTypeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EducationTypeID" msprop:DbColumnName="EducationTypeID" msprop:design-time-name="4a734898-2acf-4eef-9b4e-8a7601b02032" type="xs:int" />
+                  <xs:element name="EducationType" msprop:FriendlyName="EducationType" msprop:DbColumnName="EducationType" msprop:design-time-name="4db7bea4-08d1-4e13-be3b-cfeb80fa6be2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="ID" />
+        </xs:unique>
+        <xs:unique name="dbo_FactCustomerIncomeType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactCustomerIncomeType" />
+          <xs:field xpath="ID" />
+        </xs:unique>
+        <xs:unique name="dbo_FactCustomerHousingType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactCustomerHousingType" />
+          <xs:field xpath="ID" />
+        </xs:unique>
+        <xs:unique name="dbo_FactCustomerGender_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactCustomerGender" />
+          <xs:field xpath="ID" />
+        </xs:unique>
+        <xs:unique name="dbo_FactCustomerEducationType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactCustomerEducationType" />
+          <xs:field xpath="ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimIncomeType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimIncomeType" />
+          <xs:field xpath="IncomeTypeID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimGender_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGender" />
+          <xs:field xpath="GenderID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimHousingType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimHousingType" />
+          <xs:field xpath="HousingTypeID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimEducationType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimEducationType" />
+          <xs:field xpath="EducationTypeID" />
+        </xs:unique>
+        <xs:keyref name="FK_Fact_EducationType" refer="dbo_DimEducationType_Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerEducationType" />
+          <xs:field xpath="EducationTypeID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Education" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerEducationType" />
+          <xs:field xpath="ID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Gender" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerGender" />
+          <xs:field xpath="ID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_GenderType" refer="dbo_DimGender_Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerGender" />
+          <xs:field xpath="GenderID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_HousingTypeType" refer="dbo_DimHousingType_Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerHousingType" />
+          <xs:field xpath="HousingTypeID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_HousingType" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerHousingType" />
+          <xs:field xpath="ID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Income" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerIncomeType" />
+          <xs:field xpath="ID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_IncomeType" refer="dbo_DimIncomeType_Constraint1">
+          <xs:selector xpath=".//dbo_FactCustomerIncomeType" />
+          <xs:field xpath="IncomeTypeID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Credit_x0020_Card_x0020_DW xmlns="" />
+  </Schema>
+</DataSourceView>

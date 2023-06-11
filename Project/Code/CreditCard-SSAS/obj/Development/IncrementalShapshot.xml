@@ -1,0 +1,131 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>CreditCard-SSAS</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>rCzcbVuj+GiiLAN5MNs83fw7FNE=5/17/2023 9:45:47 PM5/17/2023 9:45:47 PM</TimeStamp>
+        <ID>
+          <String>Credit Card DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>85fVRsthjmyr3jdO1zjROCD9CrI=5/17/2023 9:46:05 PM5/17/2023 9:46:04 PM</TimeStamp>
+        <ID>
+          <String>Credit Card DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KtaEvS6LnQE8GhOF2Iuw8e4UIxc=5/17/2023 9:49:06 PM5/17/2023 9:46:34 PM</TimeStamp>
+        <ID>
+          <String>Fact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1eAzgnisE7Vt4fzYh5YzGb9/VSg=5/17/2023 9:53:21 PM5/17/2023 9:46:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Income Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EJKq6A2cunrpabfID8HdQ2xvoXI=5/17/2023 9:53:21 PM5/17/2023 9:46:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Gender</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1fHxSNBuoAEjILNVeNouArRp7bM=5/17/2023 9:53:21 PM5/17/2023 9:46:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Housing Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>O+alTJx36lnOuKu99kaejQ1TghA=5/17/2023 9:53:21 PM5/17/2023 9:46:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Education Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zWYpT4e/KGFdhiFPwBrJFDFqPtc=5/17/2023 9:47:24 PM5/17/2023 9:47:24 PM</TimeStamp>
+        <ID>
+          <String>Fact 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>p+slP5+dVSH0sU3amcRFg+GUh0I=5/17/2023 9:53:21 PM5/17/2023 9:47:10 PM8BUau1pklx4eHQxSkGo85LXyyCg=5/17/2023 9:47:10 PM5/17/2023 9:47:10 PM</TimeStamp>
+        <ID>
+          <String>Credit Card DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>xwymZg1ypYH9rLXpjfUY1hrst58=5/17/2023 9:49:06 PM5/17/2023 9:47:24 PM8bRRfy6n9KO+1KcUUx5XVsfK5pc=5/17/2023 9:47:24 PM5/17/2023 9:47:24 PM</TimeStamp>
+        <ID>
+          <String>Fact Main</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>zVKFl+wVmtRSMS9S33KWKSLPNds=5/17/2023 9:53:21 PM5/17/2023 9:47:44 PMeku74IQVLtz47vbq5YTB++ZLemw=5/17/2023 9:47:44 PM5/17/2023 9:47:44 PM</TimeStamp>
+        <ID>
+          <String>Fact Customer Income Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>vTFTErTKM3DkAnuY3VbFtEBbhu0=5/17/2023 9:53:21 PM5/17/2023 9:48:05 PM68CmU/HHpJ5PGu1h1K6SB9oWsxM=5/17/2023 9:48:05 PM5/17/2023 9:48:05 PM</TimeStamp>
+        <ID>
+          <String>Fact Customer Housing Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>jy8lD+0byIX5beSMtsBAutItN1o=5/17/2023 9:53:21 PM5/17/2023 9:48:25 PMFkMJ0VKVfyp07/E2AcwBVenrYfE=5/17/2023 9:48:25 PM5/17/2023 9:48:25 PM</TimeStamp>
+        <ID>
+          <String>Fact Customer Gender</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>Y+qDRVaYg8dKuTZPaEVYooI0TLQ=5/17/2023 9:53:20 PM5/17/2023 9:48:40 PMKnO3lR0KMyueMuvS9CgcuhsdJKQ=5/17/2023 9:48:40 PM5/17/2023 9:48:40 PM</TimeStamp>
+        <ID>
+          <String>Fact Customer Education Type</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>ppSYHgSG+xiXtvtTkClaZnjwYvU=5/17/2023 9:44:54 PM5/17/2023 9:44:53 PM</TimeStamp>
+      <ID>
+        <String>CreditCard-SSAS</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2023-05-17T14:53:24.456667Z</LastDeployed>
+</DeploymentSnapshot>

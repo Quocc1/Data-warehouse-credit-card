@@ -1,0 +1,105 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0af8cf99-da73-4c7d-a17c-567094a75aa7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Credit Card DW</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="73f860f6-ff2a-47c4-8a24-c1ebe6cd2780">
+          <ID>Fact</ID>
+          <Name>Fact</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e55ec86a-7f12-4290-a3cf-287dfc1f1f34">
+            <DataSourceViewID>Credit Card DW</DataSourceViewID>
+            <TableID>dbo_Fact</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Customer Income Type</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="af2ee050-e0bc-4d10-b1f2-fa10f20ccb60">
+          <ID>Fact Customer Income Type</ID>
+          <Name>Fact Customer Income Type</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6abc0af8-140f-4a3a-81f3-82151d97d503">
+            <DataSourceViewID>Credit Card DW</DataSourceViewID>
+            <TableID>dbo_FactCustomerIncomeType</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Customer Gender</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="6cd1c77e-5440-4cd4-9c65-b09580c69459">
+          <ID>Fact Customer Gender</ID>
+          <Name>Fact Customer Gender</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6d61fbfe-6434-4c8c-a94e-10a857977b76">
+            <DataSourceViewID>Credit Card DW</DataSourceViewID>
+            <TableID>dbo_FactCustomerGender</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Customer Housing Type</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a10d6445-9c0f-4365-9e23-c568ac927d57">
+          <ID>Fact Customer Housing Type</ID>
+          <Name>Fact Customer Housing Type</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4854abae-54c1-47c6-8992-e4657f600780">
+            <DataSourceViewID>Credit Card DW</DataSourceViewID>
+            <TableID>dbo_FactCustomerHousingType</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Customer Education Type</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fed73ce0-7ba4-4c42-8432-546516c5bb03">
+          <ID>Fact Customer Education Type</ID>
+          <Name>Fact Customer Education Type</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6f789608-dcd6-43c3-8a24-d3e53b9583aa">
+            <DataSourceViewID>Credit Card DW</DataSourceViewID>
+            <TableID>dbo_FactCustomerEducationType</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

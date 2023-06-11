@@ -1,0 +1,3454 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2023 12:04:40 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-0VS9CH5"
+  DTS:CreatorName="DESKTOP-0VS9CH5\Quoc"
+  DTS:DTSID="{1B4A80DC-C9B9-46C8-88D0-B4312C147BE4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5209.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_CreditCard"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{27ABFC1A-F2A6-4AA1-A256-0C375EB45A7E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Account"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{eb7ef98e-0f84-4ded-a4f6-926ec7fc2455}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Account"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Account\DST - CreditCardDB Account"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB Account"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Account\DST - CreditCardDB Account.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].Columns[AccountLength]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccountLength"
+                      externalMetadataColumnId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountLength]"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[AccountLength]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].Columns[Target]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Target"
+                      externalMetadataColumnId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[Target]"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Target]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountLength]"
+                      dataType="i4"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input].ExternalColumns[Target]"
+                      dataType="i4"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Account\DST - CreditCardDB Account.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Account\DST - CreditCardDB Account.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Account\DST - CreditCardDB Account.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Account\DST - CreditCardDB Account.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Account\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Account\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      length="50"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[AccountLength]"
+                      name="AccountLength"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      length="50"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Target]"
+                      name="Target"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Account.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage Account\DST - CreditCardDB Account.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage Account\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3C604419-8148-4E89-9052-C9C31D979D64}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Customer\DST - CreditCardDB Customer"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB Customer"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].Columns[WorkPhone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WorkPhone"
+                      externalMetadataColumnId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[WorkPhone]"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[WorkPhone]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="i4"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="i4"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input].ExternalColumns[WorkPhone]"
+                      dataType="i4"
+                      name="WorkPhone" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Customer\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Customer\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      length="50"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].Columns[WorkPhone]"
+                      name="WorkPhone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Customer.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage Customer\DST - CreditCardDB Customer.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage Customer\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage EducationLevel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{45e8cfac-bae9-40a0-8bc7-a4789ed6fd01}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage EducationLevel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB EducationLevel"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[EducationLevel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].Columns[EducationType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EducationType"
+                      externalMetadataColumnId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].ExternalColumns[EducationType]"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[EducationType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage EducationLevel\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      length="50"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].Columns[EducationType]"
+                      name="EducationType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage EducationLevel.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage EducationLevel\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Employment"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{c3abf835-bca2-4ff6-9dbe-d59cd843d2cb}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Employment"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Employment\DST - CreditCardDB Employment"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB Employment"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Employment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[Unemployed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Unemployed"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[Unemployed]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Unemployed]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[YearsEmployed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearsEmployed"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[YearsEmployed]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[YearsEmployed]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[IncomeType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IncomeType"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[IncomeType]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[IncomeType]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[OccupationType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OccupationType"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[OccupationType]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OccupationType]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].Columns[TotalIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TotalIncome"
+                      externalMetadataColumnId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[TotalIncome]"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[TotalIncome]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[Unemployed]"
+                      dataType="i4"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[YearsEmployed]"
+                      dataType="i4"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input].ExternalColumns[TotalIncome]"
+                      dataType="r8"
+                      name="TotalIncome" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Employment\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Employment\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[Unemployed]"
+                      name="Unemployed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[YearsEmployed]"
+                      name="YearsEmployed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[IncomeType]"
+                      name="IncomeType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OccupationType]"
+                      name="OccupationType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      length="50"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].Columns[TotalIncome]"
+                      name="TotalIncome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Employment.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage Employment\DST - CreditCardDB Employment.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage Employment\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Household"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1425f151-4a34-4e86-8fb1-caacc5378ae8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Household"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Household\DST - CreditCardDB Household"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB Household"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Household]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Household\DST - CreditCardDB Household.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].Columns[FamilyStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FamilyStatus"
+                      externalMetadataColumnId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[FamilyStatus]"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[FamilyStatus]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].Columns[HousingType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HousingType"
+                      externalMetadataColumnId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[HousingType]"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[HousingType]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].Columns[NumChildren]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NumChildren"
+                      externalMetadataColumnId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[NumChildren]"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumChildren]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].Columns[NumFamily]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NumFamily"
+                      externalMetadataColumnId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[NumFamily]"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumFamily]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[NumChildren]"
+                      dataType="i4"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input].ExternalColumns[NumFamily]"
+                      dataType="i4"
+                      name="NumFamily" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Household\DST - CreditCardDB Household.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Household\DST - CreditCardDB Household.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Household\DST - CreditCardDB Household.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Household\DST - CreditCardDB Household.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Household\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Household\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      length="50"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[FamilyStatus]"
+                      name="FamilyStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      length="50"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[HousingType]"
+                      name="HousingType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      length="50"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumChildren]"
+                      name="NumChildren"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      length="50"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].Columns[NumFamily]"
+                      name="NumFamily"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Household.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage Household\DST - CreditCardDB Household.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage Household\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Ownership"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{77945108-95c4-492e-a792-96a56f08c9ed}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Ownership"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - CreditCardDB Ownership"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Ownership]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Connections[OleDbConnection]"
+                  connectionManagerID="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CreditCardDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].Columns[OwnCar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OwnCar"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[OwnCar]"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnCar]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].Columns[OwnProperty]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OwnProperty"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[OwnProperty]"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnProperty]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[OwnCar]"
+                      dataType="i4"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input].ExternalColumns[OwnProperty]"
+                      dataType="i4"
+                      name="OwnProperty" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Ownership\SRC - Data CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Data CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Ownership\SRC - Data CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="{0EE453EF-9119-4AD4-93BD-A9764A37C69B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      length="50"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnCar]"
+                      name="OwnCar"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      length="50"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].Columns[OwnProperty]"
+                      name="OwnProperty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnCar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnCar" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OwnProperty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OwnProperty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[WorkPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WorkPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Unemployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unemployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumChildren]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumChildren" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[NumFamily]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumFamily" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[AccountLength]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountLength" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[TotalIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalIncome" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[YearsEmployed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsEmployed" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[IncomeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IncomeType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[EducationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EducationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[FamilyStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilyStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[HousingType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HousingType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[OccupationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OccupationType" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output].ExternalColumns[Target]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Target" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Ownership.Paths[Flat File Source Output]"
+              endId="Package\DF - Stage Ownership\DST - CreditCardDB Ownership.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF - Stage Ownership\SRC - Data CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Stage Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5A3C6731-224D-421C-A68B-DF1845B51FE2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Stage Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{41DF546C-BDB2-4A54-A266-7E49C4EFDDAB}"
+          SQLTask:SqlStatementSource="truncate table Customer;&#xA;truncate table Ownership;&#xA;truncate table EducationLevel;&#xA;truncate table Household;&#xA;truncate table Employment;&#xA;truncate table Account;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF96FA47-C263-42EB-9D2F-3A4CC9E4C7D5}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Stage Employment" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C2FBF3A-8FA7-4E13-9D11-2512648A69F6}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF - Stage Ownership" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{253549BB-9EE0-4437-A7A3-9CA9E8D080D9}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DF - Stage Customer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{69985397-B0CD-4CBB-96ED-977C7CC03951}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DF - Stage Household" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB184FCF-68B8-473B-B9F0-35D4B70BD619}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\DF - Stage EducationLevel" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{7105E02E-E242-45D0-B7B9-2D9832FD12F5}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\DF - Stage Account" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\DF - Stage Account"
+          TopLeft="371.428572219245,307.235293920804" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\DF - Stage Customer"
+          TopLeft="66.4285715699804,168.745097891304" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\DF - Stage EducationLevel"
+          TopLeft="366.904762685806,237.356862715158" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\DF - Stage Employment"
+          TopLeft="57.3809525031012,309.537254986864" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\DF - Stage Household"
+          TopLeft="63.5714287067554,237.505882411927" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\DF - Stage Ownership"
+          TopLeft="365.714286492796,173.482352878169" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\SQL - Truncate Stage Tables"
+          TopLeft="212.142857594454,95.5882352103309" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="245.514286165883,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.9333336627813,172.349019776533"
+              Start="0,0"
+              End="-92.9333336627813,164.849019776533">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0321351608216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0321351608216"
+                    Point2="0,41.0321351608216"
+                    Point3="-4,41.0321351608216" />
+                  <mssgle:LineSegment
+                    End="-88.9333336627813,41.0321351608216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-88.9333336627813,41.0321351608216"
+                    Point2="-92.9333336627813,41.0321351608216"
+                    Point3="-92.9333336627813,45.0321351608216" />
+                  <mssgle:LineSegment
+                    End="-92.9333336627813,164.849019776533" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="363.000000451597,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.5142860411992,36.2941176678381"
+              Start="0,0"
+              End="93.5142860411992,28.7941176678381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.43139238263776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.43139238263776"
+                    Point2="0,13.4313923826378"
+                    Point3="4,13.4313923826378" />
+                  <mssgle:LineSegment
+                    End="89.5142860411992,13.4313923826378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.5142860411992,13.4313923826378"
+                    Point2="93.5142860411992,13.4313923826378"
+                    Point3="93.5142860411992,17.4313923826378" />
+                  <mssgle:LineSegment
+                    End="93.5142860411992,28.7941176678381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="304.25714330874,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-149.428571738759,31.5568626809731"
+              Start="0,0"
+              End="-149.428571738759,24.0568626809731">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6135198626052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6135198626052"
+                    Point2="0,14.6135198626052"
+                    Point3="-4,14.6135198626052" />
+                  <mssgle:LineSegment
+                    End="-145.428571738759,14.6135198626052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-145.428571738759,14.6135198626052"
+                    Point2="-149.428571738759,14.6135198626052"
+                    Point3="-149.428571738759,18.6135198626052" />
+                  <mssgle:LineSegment
+                    End="-149.428571738759,24.0568626809731" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="274.885714737311,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-120.914286030556,100.317647201596"
+              Start="0,0"
+              End="-120.914286030556,92.8176472015961">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.124629803624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.124629803624"
+                    Point2="0,37.124629803624"
+                    Point3="-4,37.124629803624" />
+                  <mssgle:LineSegment
+                    End="-116.914286030556,37.124629803624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-116.914286030556,37.124629803624"
+                    Point2="-120.914286030556,37.124629803624"
+                    Point3="-120.914286030556,41.124629803624" />
+                  <mssgle:LineSegment
+                    End="-120.914286030556,92.8176472015961" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="392.371429023025,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.7333336627806,100.168627504827"
+              Start="0,0"
+              End="75.7333336627806,92.6686275048271">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8477286843942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8477286843942"
+                    Point2="0,23.8477286843942"
+                    Point3="4,23.8477286843942" />
+                  <mssgle:LineSegment
+                    End="71.7333336627806,23.8477286843942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.7333336627806,23.8477286843942"
+                    Point2="75.7333336627806,23.8477286843942"
+                    Point3="75.7333336627806,27.8477286843942" />
+                  <mssgle:LineSegment
+                    End="75.7333336627806,92.6686275048271" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="333.628571880168,137.188235210331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.200000339077,170.047058710473"
+              Start="0,0"
+              End="122.200000339077,162.547058710473">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.7462966507563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,74.7462966507563"
+                    Point2="0,78.7462966507563"
+                    Point3="4,78.7462966507563" />
+                  <mssgle:LineSegment
+                    End="118.200000339077,78.7462966507563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="118.200000339077,78.7462966507563"
+                    Point2="122.200000339077,78.7462966507563"
+                    Point3="122.200000339077,82.7462966507563" />
+                  <mssgle:LineSegment
+                    End="122.200000339077,162.547058710473" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Stage Account">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage Account\SRC - Data CSV"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\DF - Stage Account\DST - CreditCardDB Account"
+          TopLeft="62.9999999552965,130.999998942018" />
+        <EdgeLayout
+          Id="Package\DF - Stage Account.Paths[Flat File Source Output]"
+          TopLeft="136,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.9999999552965,29.399998942018"
+              Start="0,0"
+              End="32.9999999552965,21.899998942018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.699999471009"
+                    Point2="0,14.699999471009"
+                    Point3="4,14.699999471009" />
+                  <mssgle:LineSegment
+                    End="28.9999999552965,14.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.9999999552965,14.699999471009"
+                    Point2="32.9999999552965,14.699999471009"
+                    Point3="32.9999999552965,18.699999471009" />
+                  <mssgle:LineSegment
+                    End="32.9999999552965,21.899998942018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Account\DST - CreditCardDB Account">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Stage Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage Customer\SRC - Data CSV"
+          TopLeft="191.999997138977,48.9999992698431" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\DF - Stage Customer\DST - CreditCardDB Customer"
+          TopLeft="194.999997094274,119.999998211861" />
+        <EdgeLayout
+          Id="Package\DF - Stage Customer.Paths[Flat File Source Output]"
+          TopLeft="267.999997138977,90.5999992698431">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.999999955297,29.3999989420179"
+              Start="0,0"
+              End="36.999999955297,21.8999989420179">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.699999471009"
+                    Point2="0,14.699999471009"
+                    Point3="4,14.699999471009" />
+                  <mssgle:LineSegment
+                    End="32.999999955297,14.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.999999955297,14.699999471009"
+                    Point2="36.999999955297,14.699999471009"
+                    Point3="36.999999955297,18.699999471009" />
+                  <mssgle:LineSegment
+                    End="36.999999955297,21.8999989420179" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Customer\DST - CreditCardDB Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Stage EducationLevel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage EducationLevel\SRC - Data CSV"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel"
+          TopLeft="62.9999999552965,130.999998942018" />
+        <EdgeLayout
+          Id="Package\DF - Stage EducationLevel.Paths[Flat File Source Output]"
+          TopLeft="136,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.3999999552965,29.399998942018"
+              Start="0,0"
+              End="49.3999999552965,21.899998942018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.699999471009"
+                    Point2="0,14.699999471009"
+                    Point3="4,14.699999471009" />
+                  <mssgle:LineSegment
+                    End="45.3999999552965,14.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.3999999552965,14.699999471009"
+                    Point2="49.3999999552965,14.699999471009"
+                    Point3="49.3999999552965,18.699999471009" />
+                  <mssgle:LineSegment
+                    End="49.3999999552965,21.899998942018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage EducationLevel\DST - CreditCardDB EducationLevel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Stage Employment">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage Employment\SRC - Data CSV"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="232.8,41.6"
+          Id="Package\DF - Stage Employment\DST - CreditCardDB Employment"
+          TopLeft="62.9999999552965,130.999998942018" />
+        <EdgeLayout
+          Id="Package\DF - Stage Employment.Paths[Flat File Source Output]"
+          TopLeft="136,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.3999999552965,29.399998942018"
+              Start="0,0"
+              End="43.3999999552965,21.899998942018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.699999471009"
+                    Point2="0,14.699999471009"
+                    Point3="4,14.699999471009" />
+                  <mssgle:LineSegment
+                    End="39.3999999552965,14.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.3999999552965,14.699999471009"
+                    Point2="43.3999999552965,14.699999471009"
+                    Point3="43.3999999552965,18.699999471009" />
+                  <mssgle:LineSegment
+                    End="43.3999999552965,21.899998942018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Employment\DST - CreditCardDB Employment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Stage Household">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\DF - Stage Household\DST - CreditCardDB Household"
+          TopLeft="62.9999999552965,130.999998942018" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage Household\SRC - Data CSV"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\DF - Stage Household.Paths[Flat File Source Output]"
+          TopLeft="136,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.9999999552965,29.399998942018"
+              Start="0,0"
+              End="38.9999999552965,21.899998942018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.699999471009"
+                    Point2="0,14.699999471009"
+                    Point3="4,14.699999471009" />
+                  <mssgle:LineSegment
+                    End="34.9999999552965,14.699999471009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.9999999552965,14.699999471009"
+                    Point2="38.9999999552965,14.699999471009"
+                    Point3="38.9999999552965,18.699999471009" />
+                  <mssgle:LineSegment
+                    End="38.9999999552965,21.899998942018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Household\DST - CreditCardDB Household">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Stage Ownership">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DF - Stage Ownership\SRC - Data CSV"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\DF - Stage Ownership\DST - CreditCardDB Ownership"
+          TopLeft="62.9999999552965,130.999998942018" />
+        <EdgeLayout
+          Id="Package\DF - Stage Ownership.Paths[Flat File Source Output]"
+          TopLeft="136,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.3999999552965,29.3999989420176"
+              Start="0,0"
+              End="39.3999999552965,21.8999989420176">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6999994710088"
+                    Point2="0,14.6999994710088"
+                    Point3="4,14.6999994710088" />
+                  <mssgle:LineSegment
+                    End="35.3999999552965,14.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.3999999552965,14.6999994710088"
+                    Point2="39.3999999552965,14.6999994710088"
+                    Point3="39.3999999552965,18.6999994710088" />
+                  <mssgle:LineSegment
+                    End="39.3999999552965,21.8999989420176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Ownership\DST - CreditCardDB Ownership">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
